@@ -2,18 +2,26 @@ version: "3"
 services: 
   db-as:
     image: mariadb
-    environment:.
+    environment:
       - MARIADB_ROOT_PASSWORD=root
     volumes:
-      - twojVOLUMEN:/var/lib/mysql  
+      - /tmp/mysqlaw:/var/lib/mysql  
 
   adminer-as:
     image: adminer
     environment:
       - ADMINER_DEFAULT_SERVER=db-as
     ports:
-      - TWOJPORT-81X8:8080
+      - 8168:8080
 ### DODAJ kontener webapp bazujący na obrazie z7-TWOJLOGIN 
 
-volumes:
-  uzupełnij
+  webapp:
+    image: z7-awowra:1.0
+    environment:
+      - FLASK_RUN_HOST=localhost
+      - FLASK_RUN_PORT=9999
+      - FLASK_ENV=development
+    ports:
+      - 8068:9999
+    volumes:
+      - .:/output
