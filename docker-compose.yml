@@ -5,14 +5,14 @@ services:
     environment:.
       - MARIADB_ROOT_PASSWORD=root
     volumes:
-      - twojVOLUMEN:/var/lib/mysql  
+      - twojVOLUMEN-konfliktowy4:/var/lib/mysql  
 
   adminer-as:
     image: adminer
     environment:
       - ADMINER_DEFAULT_SERVER=db-as
     ports:
-      - TWOJPORT-81X8:8080
+      - TWOJPORT-konfliktowy4-81X8:8080
 ### DODAJ kontener webapp bazujący na obrazie z7-TWOJLOGIN 
 
 volumes:
