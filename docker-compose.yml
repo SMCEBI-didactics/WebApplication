@@ -5,15 +5,25 @@ services:
     environment:.
       - MARIADB_ROOT_PASSWORD=root
     volumes:
-      - twojVOLUMEN:/var/lib/mysql  
+      - /home/akopec/mysqlvolume:/var/lib/mysql  
 
   adminer-as:
     image: adminer
     environment:
       - ADMINER_DEFAULT_SERVER=db-as
     ports:
-      - TWOJPORT-81X8:8080
+      - 8108:8080
 ### DODAJ kontener webapp bazujący na obrazie z7-TWOJLOGIN 
+  webapp:
+    image: z7-akopec:1.0
+    environment:
+      - FLASK_RUN_HOST=localhost
+      - FLASK_RUN_PORT=9999
+      - FLASK_ENV=development
+    ports:
+      - 8008:9999
+    volumes:
+      - .:output
 
 volumes:
   uzupełnij
