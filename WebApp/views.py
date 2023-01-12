@@ -1,5 +1,4 @@
 from WebApp import app
-from WebApp.models import *
 from flask import render_template, request
 
 """
