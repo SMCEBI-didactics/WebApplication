@@ -10,4 +10,4 @@ ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=localhost
 ENV FLASK_RUN_PORT=5000
 
-ENTRYPOINT ["flask", "run"]
+ENTRYPOINT ["tests/run_flask"]
